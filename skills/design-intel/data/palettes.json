@@ -1,0 +1,134 @@
+[
+  {
+    "id": "obsidian-cyan",
+    "name": "Obsidian Cyan",
+    "mode": "dark",
+    "house_default": true,
+    "product_types": ["saas", "dashboard", "developer-tool", "analytics", "devtool"],
+    "keywords": ["dark", "technical", "edgy", "premium", "steel", "cyan", "engineering"],
+    "colors": {"bg": "#0A0C10", "surface": "#12161C", "surface2": "#171C24", "border": "#232A34", "text": "#E6EDF3", "muted": "#8B949E", "accent": "#22D3EE", "accent2": "#0EA5E9", "success": "#34D399", "warning": "#FBBF24", "danger": "#F87171"},
+    "reasoning": "Near-black bases with steel borders read as engineered, not decorative. A single controlled cyan accent carries all interaction; everything else stays chromeless.",
+    "anti": "Do not flood surfaces with the accent — cyan earns attention only on the primary action and active state."
+  },
+  {
+    "id": "graphite-amber",
+    "name": "Graphite Amber",
+    "mode": "dark",
+    "house_default": true,
+    "product_types": ["saas", "dashboard", "fintech", "b2b", "tool"],
+    "keywords": ["dark", "warm", "premium", "editorial", "amber", "confident"],
+    "colors": {"bg": "#0C0B09", "surface": "#16130F", "surface2": "#1D1913", "border": "#2A241B", "text": "#F5EFE6", "muted": "#A89B87", "accent": "#F59E0B", "accent2": "#D97706", "success": "#84CC16", "warning": "#FACC15", "danger": "#EF4444"},
+    "reasoning": "A warm graphite base feels crafted and expensive; amber gives it a human, editorial warmth without going soft.",
+    "anti": "Avoid pure #000 — the warm base is the point; black kills the warmth."
+  },
+  {
+    "id": "carbon-violet",
+    "name": "Carbon Violet",
+    "mode": "dark",
+    "house_default": false,
+    "product_types": ["ai", "saas", "developer-tool", "platform"],
+    "keywords": ["dark", "ai", "futuristic", "violet", "premium", "gradient-ready"],
+    "colors": {"bg": "#0B0A12", "surface": "#141221", "surface2": "#1B1830", "border": "#2A2542", "text": "#ECEAF6", "muted": "#9A93B8", "accent": "#8B5CF6", "accent2": "#6366F1", "success": "#22C55E", "warning": "#EAB308", "danger": "#F43F5E"},
+    "reasoning": "Violet-on-carbon is the default read for AI/ML surfaces; it supports subtle gradients without looking like a toy.",
+    "anti": "Do not stack three neon gradients — one restrained violet glow beats a rave."
+  },
+  {
+    "id": "slate-emerald",
+    "name": "Slate Emerald",
+    "mode": "dark",
+    "house_default": false,
+    "product_types": ["fintech", "saas", "dashboard", "health", "sustainability"],
+    "keywords": ["dark", "trust", "emerald", "calm", "financial", "growth"],
+    "colors": {"bg": "#0A0F0D", "surface": "#111815", "surface2": "#16211C", "border": "#22302A", "text": "#E7F0EC", "muted": "#8AA398", "accent": "#10B981", "accent2": "#059669", "success": "#22C55E", "warning": "#F59E0B", "danger": "#EF4444"},
+    "reasoning": "Emerald signals growth and trust for money/health products while the slate base keeps it serious.",
+    "anti": "Green must not double as both accent and success — pick distinct hues or users misread state."
+  },
+  {
+    "id": "ink-crimson",
+    "name": "Ink Crimson",
+    "mode": "dark",
+    "house_default": false,
+    "product_types": ["entertainment", "media", "portfolio", "agency", "streaming"],
+    "keywords": ["dark", "bold", "cinematic", "crimson", "dramatic", "editorial"],
+    "colors": {"bg": "#0B0709", "surface": "#160F12", "surface2": "#1E1418", "border": "#2C1E23", "text": "#F3E9EC", "muted": "#A88C93", "accent": "#E11D48", "accent2": "#BE123C", "success": "#22C55E", "warning": "#F59E0B", "danger": "#FB7185"},
+    "reasoning": "Cinematic crimson on ink is made for media and agency work where mood matters more than restraint.",
+    "anti": "Crimson near danger-red confuses semantics — reserve a distinct danger tint."
+  },
+  {
+    "id": "midnight-azure",
+    "name": "Midnight Azure",
+    "mode": "dark",
+    "house_default": false,
+    "product_types": ["saas", "enterprise", "security", "infrastructure", "b2b"],
+    "keywords": ["dark", "corporate", "trust", "blue", "enterprise", "secure"],
+    "colors": {"bg": "#080B12", "surface": "#0F141F", "surface2": "#141B2A", "border": "#212B3F", "text": "#E4EAF4", "muted": "#8595AE", "accent": "#3B82F6", "accent2": "#2563EB", "success": "#22C55E", "warning": "#F59E0B", "danger": "#EF4444"},
+    "reasoning": "The safest enterprise dark theme: blue reads as trustworthy and secure without any risk-taking.",
+    "anti": "This is the conservative pick — if the brief wants standout, choose a warmer or edgier palette."
+  },
+  {
+    "id": "paper-noir",
+    "name": "Paper Noir",
+    "mode": "light",
+    "house_default": false,
+    "product_types": ["editorial", "blog", "documentation", "portfolio", "marketing"],
+    "keywords": ["light", "editorial", "minimal", "high-contrast", "print", "typographic"],
+    "colors": {"bg": "#FAFAF7", "surface": "#FFFFFF", "surface2": "#F2F2ED", "border": "#E3E3DC", "text": "#111110", "muted": "#6B6B63", "accent": "#111110", "accent2": "#3A3A34", "success": "#15803D", "warning": "#B45309", "danger": "#B91C1C"},
+    "reasoning": "Print-grade light theme where the type is the design; near-black text on warm paper, ink as its own accent.",
+    "anti": "Do not add a colored accent — the restraint (ink-only) is the identity."
+  },
+  {
+    "id": "arctic-indigo",
+    "name": "Arctic Indigo",
+    "mode": "light",
+    "house_default": false,
+    "product_types": ["saas", "productivity", "b2b", "marketing", "tool"],
+    "keywords": ["light", "clean", "modern", "indigo", "professional", "airy"],
+    "colors": {"bg": "#FBFCFE", "surface": "#FFFFFF", "surface2": "#F1F4F9", "border": "#E2E8F0", "text": "#0F172A", "muted": "#64748B", "accent": "#4F46E5", "accent2": "#4338CA", "success": "#16A34A", "warning": "#D97706", "danger": "#DC2626"},
+    "reasoning": "The reliable modern-SaaS light theme: cool neutrals, indigo action, generous air.",
+    "anti": "Borders must stay subtle (#E2E8F0) — heavy borders make it feel like a form, not a product."
+  },
+  {
+    "id": "sand-terracotta",
+    "name": "Sand Terracotta",
+    "mode": "light",
+    "house_default": false,
+    "product_types": ["ecommerce", "wellness", "hospitality", "food", "lifestyle"],
+    "keywords": ["light", "warm", "organic", "terracotta", "friendly", "boutique"],
+    "colors": {"bg": "#FBF7F1", "surface": "#FFFFFF", "surface2": "#F4ECE1", "border": "#E7D9C7", "text": "#2A2018", "muted": "#8A7660", "accent": "#C2703D", "accent2": "#A85A2C", "success": "#4D7C0F", "warning": "#CA8A04", "danger": "#C0392B"},
+    "reasoning": "Warm organic neutrals for wellness/hospitality/boutique commerce — inviting, not corporate.",
+    "anti": "Avoid pure white everywhere — the warm sand tint is what makes it feel boutique."
+  },
+  {
+    "id": "cloud-rose",
+    "name": "Cloud Rose",
+    "mode": "light",
+    "house_default": false,
+    "product_types": ["consumer", "social", "creator", "ecommerce", "lifestyle"],
+    "keywords": ["light", "playful", "soft", "rose", "friendly", "consumer"],
+    "colors": {"bg": "#FEFBFC", "surface": "#FFFFFF", "surface2": "#FCF0F4", "border": "#F6DBE4", "text": "#1F1519", "muted": "#8A6B76", "accent": "#EC4899", "accent2": "#DB2777", "success": "#16A34A", "warning": "#D97706", "danger": "#E11D48"},
+    "reasoning": "Soft rose for consumer/creator products that want to feel welcoming and lightly playful.",
+    "anti": "Keep the rose to accents/highlights — a fully pink UI reads juvenile."
+  },
+  {
+    "id": "monochrome-steel",
+    "name": "Monochrome Steel",
+    "mode": "dark",
+    "house_default": true,
+    "product_types": ["portfolio", "agency", "developer-tool", "saas", "brand"],
+    "keywords": ["dark", "monochrome", "minimal", "grayscale", "brutalist", "restrained"],
+    "colors": {"bg": "#0B0B0C", "surface": "#141416", "surface2": "#1B1B1E", "border": "#2A2A2E", "text": "#F4F4F5", "muted": "#9A9AA2", "accent": "#F4F4F5", "accent2": "#A1A1AA", "success": "#22C55E", "warning": "#EAB308", "danger": "#EF4444"},
+    "reasoning": "Pure grayscale where white itself is the accent — maximum restraint, maximum craft signal.",
+    "anti": "Introducing any hue breaks the concept; keep semantics (success/danger) muted and rare."
+  },
+  {
+    "id": "deep-teal",
+    "name": "Deep Teal",
+    "mode": "dark",
+    "house_default": false,
+    "product_types": ["data", "analytics", "infrastructure", "iot", "dashboard"],
+    "keywords": ["dark", "teal", "data", "cool", "technical", "calm"],
+    "colors": {"bg": "#07100F", "surface": "#0E1918", "surface2": "#132322", "border": "#1F332F", "text": "#E3F0EE", "muted": "#7EA39D", "accent": "#2DD4BF", "accent2": "#14B8A6", "success": "#4ADE80", "warning": "#FBBF24", "danger": "#F87171"},
+    "reasoning": "Cool teal on deep green-black is easy on the eyes for long dashboard sessions and reads as data-native.",
+    "anti": "Teal and success-green sit close — separate them clearly in charts."
+  }
+]

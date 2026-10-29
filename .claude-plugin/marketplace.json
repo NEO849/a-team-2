@@ -1,0 +1,12 @@
+{
+  "name": "neo849",
+  "owner": { "name": "NEO849" },
+  "description": "A-Team 2.0 — a curated public pack of Claude Code skills, subagents, and commands for creative and engineering work.",
+  "plugins": [
+    {
+      "name": "a-team-2",
+      "source": "./",
+      "description": "A-Team 2.0 — elite creative + engineering skill pack for Claude Code (design, video, writing, decision frameworks)."
+    }
+  ]
+}

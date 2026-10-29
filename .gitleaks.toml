@@ -1,0 +1,39 @@
+# A-Team 2.0 — secret gate (gitleaks config, PUBLIC-safe)
+# Catches real secrets via gitleaks' default ruleset, plus a few GENERIC private
+# markers that reveal nothing identifying. The operator's IDENTIFYING denylist
+# (handles, private target names, project/agent fingerprints, build-host IP) is
+# NOT here — it lives in the untracked scripts/scrub-denylist.local, so this public
+# config never ships the very terms it is meant to block. See scripts/scrub-check.sh.
+
+title = "A-Team 2.0 secret gate"
+
+[extend]
+useDefault = true
+
+# --- Generic private markers (non-identifying) -------------------------------
+[[rules]]
+id = "private-root-path"
+description = "Absolute /root path leaked from a private workspace"
+regex = '''(^|[^a-zA-Z0-9_])/root/'''
+tags = ["private", "path"]
+
+[[rules]]
+id = "private-email"
+description = "Private contact email (gmail pattern)"
+regex = '''[A-Za-z0-9._%+-]+@gmail\.com'''
+tags = ["private", "identity"]
+
+[allowlist]
+description = "Allowlisted values that are safe public references"
+# The plugin-root variables are public, documented Claude Code tokens, not leaks.
+regexes = [
+  '''\$\{CLAUDE_(PLUGIN_ROOT|SKILL_DIR|PLUGIN_DATA|PROJECT_DIR)\}'''
+]
+# The two gate meta-files NAME generic patterns (e.g. the literal "/root/") as part of
+# the detection logic, not as leaks. They now contain NO identifying terms (those moved
+# to the untracked scripts/scrub-denylist.local), so excluding them from self-scanning
+# is safe and prevents a false self-match on their own pattern strings.
+paths = [
+  '''\.gitleaks\.toml''',
+  '''scripts/scrub-check\.sh''',
+]

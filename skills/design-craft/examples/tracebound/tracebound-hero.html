@@ -1,0 +1,265 @@
+<title>Tracebound: live network path intelligence</title>
+
+<style>
+  /* ── Committed single world: dark instrument. No theme toggle (deliberate),
+     but every color is painted from a token so the page holds on any host ground. ── */
+  :root {
+    --ground: #0a0f14;     /* ink, blue-biased near-black. chosen neutral, not #000 */
+    --surface: #111a23;
+    --raise: #16222d;
+    --line: #223140;
+    --ink: #eaf2f6;        /* hi text */
+    --muted: #8095a3;      /* lo text, slate */
+    --signal-fast: #35e0b0;  /* cool teal = low latency + brand/interactive accent */
+    --signal-mid: #7fd08a;
+    --signal-slow: #ffb454;  /* warm amber = high latency. SEMANTIC only, on data */
+    --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+    --maxw: 1200px;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--ground);       /* explicit ground, never borrow the host */
+    color: var(--ink);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ── Browser surfaces themed from the palette (the cheap "built" signal) ── */
+  ::selection { background: color-mix(in oklab, var(--signal-fast) 30%, transparent); color: var(--ink); }
+  :focus-visible { outline: 2px solid var(--signal-fast); outline-offset: 3px; border-radius: 4px; }
+  * { scrollbar-color: var(--line) var(--ground); scrollbar-width: thin; }
+  a { color: inherit; }
+
+  .wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(20px, 5vw, 48px); }
+
+  /* ── Top bar: single line, wordmark left, one link + CTA right ── */
+  .bar {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px; position: sticky; top: 0; z-index: 10;
+    background: color-mix(in oklab, var(--ground) 86%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .mark {
+    font-family: var(--font-mono); font-weight: 600; letter-spacing: 0.14em;
+    font-size: 13px; text-transform: uppercase;
+  }
+  .mark b { color: var(--signal-fast); font-weight: 600; }
+  .bar nav { display: flex; align-items: center; gap: clamp(16px, 3vw, 28px); }
+  .bar .navlink { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); text-decoration: none; letter-spacing: 0.04em; }
+  .bar .navlink:hover { color: var(--ink); }
+
+  /* ── Buttons ── */
+  .btn {
+    font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.03em;
+    border: 1px solid transparent; border-radius: 8px; padding: 10px 16px;
+    cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    transition: transform .12s cubic-bezier(0.23,1,0.32,1),
+                background-color .16s cubic-bezier(0.23,1,0.32,1),
+                border-color .16s cubic-bezier(0.23,1,0.32,1);
+  }
+  .btn-primary { background: var(--signal-fast); color: #04120d; font-weight: 600; }
+  .btn-ghost { background: transparent; border-color: var(--line); color: var(--ink); }
+  .btn:active { transform: scale(0.97); }             /* press feedback, transition retargets */
+  @media (hover: hover) and (pointer: fine) {          /* gate hover so touch does not false-fire */
+    .btn-primary:hover { background: color-mix(in oklab, var(--signal-fast) 88%, white); }
+    .btn-ghost:hover { border-color: var(--signal-fast); }
+  }
+
+  /* ── Hero: asymmetric split, big negative space (VARIANCE 8) ── */
+  .hero { display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+          gap: clamp(24px, 4vw, 56px); align-items: center;
+          padding-block: clamp(56px, 9vw, 128px); }
+  .lede { max-width: 30ch; }
+  h1 {
+    font-size: clamp(2.4rem, 5.4vw, 4.3rem); line-height: 1.02;
+    letter-spacing: -0.03em; font-weight: 640; margin: 0 0 20px;
+    text-wrap: balance;
+  }
+  h1 .kin { display: inline-block; }                   /* per-word entrance targets */
+  .sub { color: var(--muted); font-size: clamp(1rem, 1.4vw, 1.15rem); max-width: 42ch; margin: 0 0 30px; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+  /* ── Trace panel: the thesis. A route forming in real time ── */
+  .panel {
+    position: relative; background:
+      radial-gradient(120% 90% at 78% 12%, color-mix(in oklab, var(--signal-fast) 8%, transparent), transparent 60%),
+      var(--surface);
+    border-radius: 16px; padding: 22px;
+    /* Elevation declared once, via the drop shadow. The inset top line is a bezel
+       highlight (material), not a competing border, so this is not a ghost card. */
+    box-shadow: 0 24px 60px -30px rgba(0,0,0,0.85),
+                inset 0 1px 0 color-mix(in oklab, white 7%, transparent);
+  }
+  .panel-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+  .panel-title { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.05em; color: var(--muted); }
+  .panel-title b { color: var(--ink); font-weight: 600; }
+  .dest { font-family: var(--font-mono); font-size: 12px; color: var(--signal-fast); }
+  svg.trace { width: 100%; max-width: 100%; height: auto; display: block; }
+
+  .route-path { fill: none; stroke: var(--line); stroke-width: 2; }
+  .route-live {
+    fill: none; stroke: url(#latency); stroke-width: 2.5; stroke-linecap: round;
+    stroke-dasharray: var(--len); stroke-dashoffset: var(--len);
+    animation: draw 1.7s cubic-bezier(0.23,1,0.32,1) 0.35s forwards;
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  .hop { transform-box: fill-box; transform-origin: center; opacity: 0; animation: pop .42s cubic-bezier(0.23,1,0.32,1) forwards; }
+  @keyframes pop { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
+  .hop-label { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); font-variant-numeric: tabular-nums; opacity: 0; animation: fadein .4s ease forwards; }
+  .hop-ms { font-family: var(--font-mono); font-size: 11px; font-variant-numeric: tabular-nums; }
+  @keyframes fadein { to { opacity: 1; } }
+
+  /* ── Second section: NOT three equal cards. One big signal + two offset facts ── */
+  .signal { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(20px, 4vw, 48px);
+            padding-block: clamp(48px, 8vw, 104px); border-top: 1px solid var(--line); align-items: end; }
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s cubic-bezier(0.16,1,0.3,1), transform .6s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  .big-stat { font-size: clamp(3rem, 8vw, 6rem); font-weight: 660; letter-spacing: -0.04em; line-height: 0.95; font-variant-numeric: tabular-nums; }
+  .big-stat .u { font-size: 0.32em; color: var(--muted); letter-spacing: 0; font-weight: 500; }
+  .big-cap { color: var(--muted); max-width: 34ch; margin-top: 14px; }
+  .facts { display: grid; gap: 20px; }
+  .fact { padding-left: 16px; border-left: 2px solid var(--signal-fast); }
+  .fact:nth-child(2) { border-left-color: var(--signal-slow); margin-left: clamp(0px, 4vw, 40px); }  /* offset, second hue = semantic */
+  .fact .n { font-family: var(--font-mono); font-size: 1.5rem; font-variant-numeric: tabular-nums; }
+  .fact .t { color: var(--muted); font-size: 0.95rem; }
+
+  footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--muted);
+           font-family: var(--font-mono); font-size: 12px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: minmax(0, 1fr); }   /* keep the zero min so the SVG can shrink */
+    .signal { grid-template-columns: minmax(0, 1fr); align-items: start; }
+    .fact:nth-child(2) { margin-left: 0; }
+  }
+  @media (max-width: 560px) {
+    .bar .navlink { display: none; }          /* keep the primary CTA, drop the text link so the bar fits */
+    .panel-head { flex-wrap: wrap; gap: 2px 10px; }  /* dest wraps instead of clipping */
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .route-live { animation: none; stroke-dashoffset: 0; }
+    .hop, .hop-label { animation: none; opacity: 1; }
+    .kin { opacity: 1 !important; transform: none !important; }
+    .reveal { transition: none; }
+  }
+</style>
+
+<header class="bar">
+  <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+    <span class="mark">TRACE<b>BOUND</b></span>
+    <nav>
+      <a class="navlink" href="#how">how it works</a>
+      <a class="btn btn-primary" href="#start">Start tracing</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="lede">
+      <h1 id="headline">
+        <span class="kin">See</span> <span class="kin">every</span> <span class="kin">hop</span>
+        <span class="kin">before</span> <span class="kin">users</span> <span class="kin">feel</span> <span class="kin">it.</span>
+      </h1>
+      <p class="sub">Live path tracing with per hop latency, ASN and geo. Watch the route form in real time, not after the incident.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#start">Start tracing</a>
+        <a class="btn btn-ghost" href="#how">See a live trace</a>
+      </div>
+    </div>
+
+    <!-- Thesis: a route forming. Structured SVG geometry (CSP safe, not a fake image) -->
+    <div class="panel">
+      <div class="panel-head">
+        <span class="panel-title">path to <b>api.tracebound.io</b></span>
+        <span class="dest">live . 6 hops</span>
+      </div>
+      <svg class="trace" viewBox="0 0 560 300" role="img" aria-label="A traceroute path forming across six hops, colored from low to high latency.">
+        <defs>
+          <linearGradient id="latency" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="var(--signal-fast)"/>
+            <stop offset="0.6" stop-color="var(--signal-mid)"/>
+            <stop offset="1" stop-color="var(--signal-slow)"/>
+          </linearGradient>
+        </defs>
+        <!-- static track under the live line -->
+        <polyline class="route-path" points="40,235 140,150 250,205 350,95 450,160 520,70"/>
+        <polyline class="route-live" points="40,235 140,150 250,205 350,95 450,160 520,70"/>
+        <g id="hops"></g>
+      </svg>
+    </div>
+  </section>
+
+  <section class="signal" id="how">
+    <div class="reveal">
+      <div class="big-stat">1.9<span class="u">s to full path</span></div>
+      <p class="big-cap">A trace resolves the whole route, DNS to destination, in under two seconds. You read the map while the packet is still in flight.</p>
+    </div>
+    <div class="facts">
+      <div class="reveal fact"><div class="n">every hop</div><div class="t">latency, ASN, org and geo on each node, not just the endpoint.</div></div>
+      <div class="reveal fact"><div class="n">slow hops, flagged</div><div class="t">the amber leg is where the route bends. The color is the data, not decoration.</div></div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>TRACEBOUND</span>
+  <span>demo build . mock trace data</span>
+</footer>
+
+<script>
+  // Build hop nodes + latency labels from data (no scroll listeners anywhere).
+  const hops = [
+    { x: 40,  y: 235, ms: 3,   d: 90 },
+    { x: 140, y: 150, ms: 11,  d: 320 },
+    { x: 250, y: 205, ms: 18,  d: 620 },
+    { x: 350, y: 95,  ms: 27,  d: 900 },
+    { x: 450, y: 160, ms: 41,  d: 1240 },
+    { x: 520, y: 70,  ms: 63,  d: 1560 },
+  ];
+  const NS = "http://www.w3.org/2000/svg";
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const live = document.querySelector(".route-live");
+  const len = live.getTotalLength();
+  live.style.setProperty("--len", len);
+  const g = document.getElementById("hops");
+  function color(ms) { return ms < 15 ? "var(--signal-fast)" : ms < 35 ? "var(--signal-mid)" : "var(--signal-slow)"; }
+  hops.forEach((h, i) => {
+    const c = document.createElementNS(NS, "circle");
+    c.setAttribute("class", "hop");
+    c.setAttribute("cx", h.x); c.setAttribute("cy", h.y); c.setAttribute("r", i === hops.length - 1 ? 7 : 5);
+    c.setAttribute("fill", color(h.ms));
+    c.style.animationDelay = reduce ? "0s" : (0.35 + h.d / 1560 * 1.7) + "s";
+    g.appendChild(c);
+    const label = document.createElementNS(NS, "text");
+    label.setAttribute("class", "hop-label");
+    label.setAttribute("x", h.x); label.setAttribute("y", h.y - 14);
+    label.setAttribute("text-anchor", "middle");
+    label.setAttribute("fill", color(h.ms));
+    label.textContent = h.ms + " ms";
+    label.style.animationDelay = reduce ? "0s" : (0.5 + h.d / 1560 * 1.7) + "s";
+    g.appendChild(label);
+  });
+
+  // Headline word stagger via WAAPI (dynamic, interruptible-safe, respects reduced motion).
+  if (!reduce) {
+    document.querySelectorAll("#headline .kin").forEach((el, i) => {
+      el.animate(
+        [{ opacity: 0, transform: "translateY(14px)" }, { opacity: 1, transform: "translateY(0)" }],
+        { duration: 460, delay: 120 + i * 55, easing: "cubic-bezier(0.23,1,0.32,1)", fill: "both" }
+      );
+    });
+  }
+
+  // Scroll reveal via IntersectionObserver (NOT a scroll listener).
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold: 0.3 });
+  document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+</script>

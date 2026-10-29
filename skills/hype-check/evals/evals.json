@@ -1,0 +1,26 @@
+{
+  "skill_name": "hype-check",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "hab das grad auf linkedin gesehen, was hältst du davon? 🚀 Ein neues Tool namens 'FlashInfer-Nano' bringt Llama-4 405B auf einem einzigen RTX 4060 (8GB VRAM) zum Laufen — angeblich 15 tok/s, komplett in Rust, 900 Zeilen, keine Dependencies. 'Der Tod der teuren GPU-Cluster.' Repo: https://lnkd.in/gК9xY-fake. Stimmt das oder ist das übertrieben?",
+      "expected_output": "Finds/attempts the canonical repo (flags the mangled lnkd.in link), extracts the concrete claims (405B on 8GB, 15 tok/s, 900 lines Rust, no deps), verifies each against primary evidence, separates real-vs-inflated-vs-false, surfaces the honest catch, and gives a clinical verdict. Does NOT execute anything. Honest where it cannot verify.",
+      "files": [],
+      "expectations": []
+    },
+    {
+      "id": 2,
+      "prompt": "Können wir vulnhuntr in unsere Pipeline übernehmen? Auf Twitter heißt es das findet vollautomatisch RCEs und SSRFs in Python-Repos mit Claude, angeblich 'zero false positives' und schon dutzende CVEs damit gemeldet. Bevor ich das installiere — ist der Hype berechtigt?",
+      "expected_output": "Treats this as a hyped-OSS-tool due-diligence: finds the real vulnhuntr repo, verifies the specific claims (fully automated, zero false positives, dozens of CVEs), flags 'zero false positives' as the kind of framing claim that's almost never literally true, finds critical/skeptical voices, and gives an adoption recommendation with a read-only-first caveat before running untrusted code. Clinical, primary-anchored.",
+      "files": [],
+      "expectations": []
+    },
+    {
+      "id": 3,
+      "prompt": "Kannst du mir kurz erklären wie Mixture-of-Experts (MoE) Modelle funktionieren und warum sie effizienter sind als dichte Modelle?",
+      "expected_output": "This is a NEAR-MISS that should NOT trigger hype-check — it's a plain conceptual explainer with no claim to verify, no viral post, no 'is this real'. The skill description should not pull this in; ideally the assistant just explains MoE (or uses an explainer skill), without running the claim-verification workflow.",
+      "files": [],
+      "expectations": []
+    }
+  ]
+}

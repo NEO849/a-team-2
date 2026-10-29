@@ -1,0 +1,112 @@
+[
+  {
+    "id": "geist-pair",
+    "display": "Geist",
+    "body": "Geist",
+    "mono": "Geist Mono",
+    "google_fonts": true,
+    "product_types": ["saas", "developer-tool", "dashboard", "ai"],
+    "keywords": ["technical", "modern", "neutral", "developer", "geometric", "clean"],
+    "reasoning": "Geist is the current default read for developer-facing products: neutral, precise, ships with a matching mono.",
+    "pairing_note": "Single-family display+body; use Geist Mono for code, metrics and labels. Weights 400/500/600."
+  },
+  {
+    "id": "inter-mono",
+    "display": "Inter",
+    "body": "Inter",
+    "mono": "JetBrains Mono",
+    "google_fonts": true,
+    "product_types": ["saas", "b2b", "dashboard", "productivity"],
+    "keywords": ["neutral", "legible", "workhorse", "ui", "safe", "screen"],
+    "reasoning": "Inter is the reliable UI workhorse — supreme legibility at small sizes; JetBrains Mono covers code/metrics.",
+    "pairing_note": "Enable Inter optical sizing; set tracking slightly tight on large headings (-0.02em)."
+  },
+  {
+    "id": "satoshi-supreme",
+    "display": "Satoshi",
+    "body": "Inter",
+    "mono": "IBM Plex Mono",
+    "google_fonts": false,
+    "product_types": ["saas", "marketing", "brand", "startup"],
+    "keywords": ["modern", "geometric", "premium", "startup", "confident"],
+    "reasoning": "Satoshi headings give a startup a distinct geometric voice while Inter keeps body text neutral and legible.",
+    "pairing_note": "Satoshi (Fontshare) for display only; do not set long body copy in it. Fallback: Manrope."
+  },
+  {
+    "id": "space-grotesk-mono",
+    "display": "Space Grotesk",
+    "body": "Inter",
+    "mono": "Space Mono",
+    "google_fonts": true,
+    "product_types": ["developer-tool", "ai", "web3", "portfolio"],
+    "keywords": ["technical", "quirky", "geometric", "edgy", "futuristic"],
+    "reasoning": "Space Grotesk headings read technical-with-character; good for dev/AI/web3 that want personality over corporate.",
+    "pairing_note": "Reserve Space Grotesk for H1/H2; pair with neutral Inter body to avoid fatigue."
+  },
+  {
+    "id": "editorial-serif",
+    "display": "Fraunces",
+    "body": "Inter",
+    "mono": "IBM Plex Mono",
+    "google_fonts": true,
+    "product_types": ["editorial", "portfolio", "agency", "brand", "marketing"],
+    "keywords": ["editorial", "serif", "expressive", "premium", "contrast", "magazine"],
+    "reasoning": "Fraunces (variable, optical) brings high-contrast editorial character; Inter keeps UI/body neutral.",
+    "pairing_note": "Use Fraunces opsz at large sizes for the contrast payoff; soft italic for pull-quotes."
+  },
+  {
+    "id": "newsreader-classic",
+    "display": "Newsreader",
+    "body": "Newsreader",
+    "mono": "IBM Plex Mono",
+    "google_fonts": true,
+    "product_types": ["blog", "documentation", "editorial", "reading"],
+    "keywords": ["serif", "reading", "long-form", "editorial", "calm", "classic"],
+    "reasoning": "A reading-first serif for long-form; comfortable measure and rhythm beat any sans for essays.",
+    "pairing_note": "Body 18-20px, line-height 1.6, measure 60-72ch. Mono for code blocks only."
+  },
+  {
+    "id": "sohne-industrial",
+    "display": "Archivo",
+    "body": "Inter",
+    "mono": "Space Mono",
+    "google_fonts": true,
+    "product_types": ["agency", "portfolio", "brand", "entertainment"],
+    "keywords": ["industrial", "grotesque", "bold", "brutalist", "condensed"],
+    "reasoning": "Archivo (with Expanded/Condensed axes) gives an industrial, brutalist voice for agency and brand work.",
+    "pairing_note": "Use Archivo Expanded for oversized display; keep body neutral. Great with monochrome palettes."
+  },
+  {
+    "id": "manrope-clean",
+    "display": "Manrope",
+    "body": "Manrope",
+    "mono": "JetBrains Mono",
+    "google_fonts": true,
+    "product_types": ["saas", "marketing", "startup", "productivity"],
+    "keywords": ["modern", "rounded", "friendly", "clean", "geometric"],
+    "reasoning": "Manrope is a slightly warmer geometric sans — modern and friendly without losing professionalism.",
+    "pairing_note": "Single family display+body; weights 500/700. Good default when Geist feels too austere."
+  },
+  {
+    "id": "ibm-plex-system",
+    "display": "IBM Plex Sans",
+    "body": "IBM Plex Sans",
+    "mono": "IBM Plex Mono",
+    "google_fonts": true,
+    "product_types": ["enterprise", "infrastructure", "documentation", "b2b"],
+    "keywords": ["corporate", "engineered", "neutral", "system", "trust"],
+    "reasoning": "A coherent super-family (Sans/Mono/Serif) engineered for technical and enterprise contexts.",
+    "pairing_note": "Stay within the Plex family for total consistency across UI, code and docs."
+  },
+  {
+    "id": "instrument-display",
+    "display": "Instrument Serif",
+    "body": "Geist",
+    "mono": "Geist Mono",
+    "google_fonts": true,
+    "product_types": ["ai", "brand", "portfolio", "marketing"],
+    "keywords": ["expressive", "serif-display", "elegant", "contrast", "modern"],
+    "reasoning": "A single elegant serif display over a neutral Geist body is a current high-craft combo for AI/brand hero sections.",
+    "pairing_note": "Instrument Serif for the hero headline only; italic for one accent word. Everything else Geist."
+  }
+]

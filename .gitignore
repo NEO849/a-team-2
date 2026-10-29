@@ -1,0 +1,12 @@
+# Build / OS noise
+.DS_Store
+node_modules/
+*.log
+
+# Local scan artifacts (never commit raw scan output — may echo secrets)
+/.scan/
+gitleaks-report.json
+trufflehog-report.json
+
+# Operator's PRIVATE denylist of identifying terms — must never ship to the public repo
+scripts/scrub-denylist.local

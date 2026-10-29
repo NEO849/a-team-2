@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# A-Team 2.0 pre-commit hook: run the No-Secrets-Gate on staged changes.
+# Install:  ln -sf ../../scripts/git-hooks/pre-commit .git/hooks/pre-commit
+# Bypass (only for a verified false positive):  git commit --no-verify
+set -euo pipefail
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+exec "${REPO_ROOT}/scripts/scrub-check.sh" staged

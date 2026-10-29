@@ -1,0 +1,7 @@
+# Optional: for contributors who use the pre-commit framework.
+# The repo also ships a dependency-free native hook at scripts/git-hooks/pre-commit.
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.28.0
+    hooks:
+      - id: gitleaks

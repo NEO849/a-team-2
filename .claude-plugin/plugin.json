@@ -1,0 +1,19 @@
+{
+  "name": "a-team-2",
+  "version": "0.1.0",
+  "description": "A-Team 2.0 — a curated public pack of elite Claude Code skills and subagents: a full creative studio (design, animation, video, writing) plus decision and skill-engineering frameworks. Your A-Team of AI specialists.",
+  "author": { "name": "NEO849" },
+  "license": "MIT",
+  "homepage": "https://github.com/NEO849/a-team-2",
+  "repository": "https://github.com/NEO849/a-team-2",
+  "keywords": [
+    "claude-code",
+    "skills",
+    "subagents",
+    "design",
+    "video",
+    "remotion",
+    "writing",
+    "creative"
+  ]
+}

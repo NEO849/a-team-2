@@ -216,7 +216,7 @@ Two views on the same font decisions — fill both, keep them consistent:
 
 | Purpose | Icon Path | Page |
 | ------- | --------- | ---- |
-| [example] | `chunk-filled/circle-checkmark` | Slide XX |
+| [example] | `tabler-filled/circle-check` | Slide XX |
 
 ---
 

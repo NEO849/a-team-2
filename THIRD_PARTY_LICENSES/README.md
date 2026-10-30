@@ -25,3 +25,18 @@ The icon set under `skills/ppt-master/templates/icons/simple-icons/` is from
 [simple-icons](https://github.com/simple-icons/simple-icons), released under CC0-1.0. See the
 `NOTICE.md` in that directory: CC0 covers copyright only — the SVGs are brand logos and remain
 trademarks of their respective owners.
+
+## MIT License
+
+The following icon sets are bundled under `skills/ppt-master/templates/icons/` and licensed
+under MIT:
+
+- `tabler-outline/` and `tabler-filled/` — from
+  [Tabler Icons](https://github.com/tabler/tabler-icons)
+  (© 2020–2026 Paweł Kuna). MIT: https://github.com/tabler/tabler-icons/blob/main/LICENSE
+- `phosphor-duotone/` — from
+  [Phosphor Icons](https://github.com/phosphor-icons/core)
+  (© 2023 Phosphor Icons). MIT: https://github.com/phosphor-icons/core/blob/main/LICENSE
+
+The MIT license text requires the copyright notice and permission notice to travel with the
+files; both upstream `LICENSE` files are linked above.

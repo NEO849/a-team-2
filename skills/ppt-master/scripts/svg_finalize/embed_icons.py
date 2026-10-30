@@ -5,14 +5,10 @@ SVG Icon Embedding Tool
 Replaces icon placeholders in SVG files with actual icon code.
 
 Placeholder syntax (new SVGs must include a library prefix):
-    <use data-icon="chunk-filled/rocket" x="100" y="200" width="48" height="48" fill="#0076A8"/>
+    <use data-icon="tabler-filled/rocket" x="100" y="200" width="48" height="48" fill="#0076A8"/>
     <use data-icon="tabler-filled/home" x="100" y="200" width="48" height="48" fill="#0076A8"/>
     <use data-icon="tabler-outline/home" x="100" y="200" width="48" height="48" fill="#0076A8"/>
     <use data-icon="tabler-outline/home" x="100" y="200" width="48" height="48" fill="#0076A8" stroke-width="3"/>
-
-Legacy compatibility accepted by the resolver:
-    <use data-icon="rocket" .../> -> chunk-filled/rocket
-    <use data-icon="chunk/rocket" .../> -> chunk-filled/rocket
 
 Optional `stroke-width` (stroke-style libraries only — e.g. tabler-outline):
     Default 2 (matches the source). Pass 1.5 for thin, 3 for bold.
@@ -24,7 +20,6 @@ After replacement:
     </g>
 
 Icon libraries (subdirectories of templates/icons/):
-    chunk-filled/      - 640+ fill icons, 16x16 viewBox  (use prefix: chunk-filled/name; legacy 'chunk/' also accepted)
     tabler-filled/     - 1000+ fill icons, 24x24 viewBox (use prefix: tabler-filled/name)
     tabler-outline/    - 5000+ stroke icons, 24x24 viewBox (use prefix: tabler-outline/name)
     phosphor-duotone/  - 1200+ duotone icons, 256x256 viewBox (single color + 0.2-opacity backplate)
@@ -53,8 +48,6 @@ DEFAULT_ICONS_DIR = Path(__file__).parent.parent.parent / 'templates' / 'icons'
 
 # Icon base size per library
 ICON_BASE_SIZES = {
-    'chunk-filled': 16,
-    'chunk': 16,          # backward compat alias → chunk-filled/
     'tabler-filled': 24,
     'tabler-outline': 24,
     'phosphor-duotone': 256,
@@ -108,29 +101,21 @@ def resolve_icon_path(icon_name: str, icons_dir: Path) -> tuple[Path, float]:
     Resolve icon name to file path and base size.
 
     Supports:
-      - "chunk-filled/home"     → icons_dir/chunk-filled/home.svg
-      - "chunk/home"            → icons_dir/chunk-filled/home.svg (backward compat alias)
       - "tabler-filled/home"    → icons_dir/tabler-filled/home.svg
       - "tabler-outline/home"   → icons_dir/tabler-outline/home.svg
-      - "home" (no prefix)      → falls back to icons_dir/chunk-filled/home.svg (legacy compat only)
+      - "home" (no prefix)      → icons_dir/home.svg (legacy flat layout only)
 
     Returns (path, base_size). base_size=0 means not found.
     """
-    # Backward compat: 'chunk/name' → 'chunk-filled/name'
-    _LIB_ALIASES = {'chunk': 'chunk-filled'}
-
     if '/' in icon_name:
         lib, name = icon_name.split('/', 1)
-        lib = _LIB_ALIASES.get(lib, lib)  # resolve aliases
         icon_path = icons_dir / lib / f'{name}.svg'
         base_size = ICON_BASE_SIZES.get(lib, 24)
     else:
-        # Backward compatibility: un-prefixed names fall back to legacy chunk-filled/ library
-        icon_path = icons_dir / 'chunk-filled' / f'{icon_name}.svg'
-        base_size = 16
-        if not icon_path.exists():
-            icon_path = icons_dir / f'{icon_name}.svg'  # legacy flat layout
-            base_size = 16
+        # Un-prefixed names are deprecated — every placeholder must carry a
+        # library prefix. Only the legacy flat layout is still resolved here.
+        icon_path = icons_dir / f'{icon_name}.svg'
+        base_size = 24
 
     return icon_path, base_size
 

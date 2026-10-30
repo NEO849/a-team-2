@@ -53,11 +53,10 @@ The `charts/` directory contains 57 standardized visualization templates. For ba
 
 ## Icon Library
 
-The `icons/` directory contains 11,600+ vector icons across five libraries:
+The `icons/` directory contains 10,900+ vector icons across four libraries:
 
 | Library | Style | Count |
 |---------|-------|-------|
-| `chunk-filled` | fill / straight-line geometry | 640 |
 | `tabler-filled` | fill / bezier-curve forms | 1000+ |
 | `tabler-outline` | stroke / line | 5000+ |
 | `phosphor-duotone` | duotone / single color + 0.2 opacity backplate | 1200+ |

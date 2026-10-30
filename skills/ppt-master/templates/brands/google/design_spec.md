@@ -63,4 +63,4 @@ Google uses a dual-lockup brand system — pick by context, never combine on the
 
 - Preference: filled
 
-> Aligns with Material Icons' default filled style. When the deck uses `templates/icons/`, prefer `tabler-filled` or `chunk-filled`; avoid stroke-only libraries to stay consistent with Google's product UI aesthetic.
+> Aligns with Material Icons' default filled style. When the deck uses `templates/icons/`, prefer `tabler-filled`; avoid stroke-only libraries to stay consistent with Google's product UI aesthetic.

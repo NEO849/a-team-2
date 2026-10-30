@@ -176,7 +176,7 @@ One offending character invalidates the file and aborts export. Numeric refs (`&
 - **Styles**: inline only (`fill=""`, `font-size=""`); `<style>`/`class` FORBIDDEN (`id` inside `<defs>` is fine)
 - **Colors**: HEX only; transparency via `fill-opacity`/`stroke-opacity`
 - **Images**: `<image href="../images/xxx.png" preserveAspectRatio="xMidYMid slice"/>`
-- **Icons**: `<use data-icon="<library>/<name>" x="" y="" width="48" height="48" fill="#HEX"/>` (auto-embedded post-processing). Always include library prefix. One stylistic library per deck (`chunk-filled`/`tabler-filled`/`tabler-outline`/`phosphor-duotone`); `simple-icons` only for real brand marks. See [`../templates/icons/README.md`](../templates/icons/README.md).
+- **Icons**: `<use data-icon="<library>/<name>" x="" y="" width="48" height="48" fill="#HEX"/>` (auto-embedded post-processing). Always include library prefix. One stylistic library per deck (`tabler-filled`/`tabler-outline`/`phosphor-duotone`); `simple-icons` only for real brand marks. See [`../templates/icons/README.md`](../templates/icons/README.md).
 
 ### Inline Text Runs (Single Logical Line = Single `<text>`)
 
@@ -280,7 +280,7 @@ Wrap logically related elements in top-level `<g id="...">` groups. Produces Pow
 <g id="card-benefits-1">
   <!-- This card floats over a colored panel — shadow is appropriate. On a flat white canvas, omit the filter. -->
   <rect x="60" y="115" width="565" height="260" rx="20" fill="#FFFFFF" filter="url(#shadow)"/>
-  <use data-icon="chunk-filled/bolt" x="108" y="163" width="44" height="44" fill="#0071E3"/>
+  <use data-icon="tabler-filled/bolt" x="108" y="163" width="44" height="44" fill="#0071E3"/>
   <text x="105" y="270" font-size="56" font-weight="bold" fill="#0071E3">10×</text>
   <text x="250" y="270" font-size="30" font-weight="bold" fill="#1D1D1F">Faster</text>
   <text x="105" y="310" font-size="18" fill="#6E6E73">Reduce production time from days to hours.</text>

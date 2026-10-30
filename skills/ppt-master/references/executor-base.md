@@ -215,9 +215,6 @@ Strategist chooses the library and inventory; Executor only implements. Library 
 **Built-in icons — Placeholder method (recommended)**:
 
 ```xml
-<!-- chunk-filled (straight-line geometry, sharp corners, structured) -->
-<use data-icon="chunk-filled/home" x="100" y="200" width="48" height="48" fill="#005587"/>
-
 <!-- tabler-filled (bezier-curve forms, smooth & rounded contours) -->
 <use data-icon="tabler-filled/home" x="100" y="200" width="48" height="48" fill="#005587"/>
 
@@ -243,39 +240,38 @@ Strategist chooses the library and inventory; Executor only implements. Library 
 
 **Searching for icons** — use terminal, zero token cost:
 ```bash
-ls skills/ppt-master/templates/icons/chunk-filled/ | grep home
 ls skills/ppt-master/templates/icons/tabler-filled/ | grep home
 ls skills/ppt-master/templates/icons/tabler-outline/ | grep chart
 ls skills/ppt-master/templates/icons/phosphor-duotone/ | grep house
 ls skills/ppt-master/templates/icons/simple-icons/ | grep github
 ```
 
-**Abstract concept → icon name** (names for `chunk-filled`; tabler libraries use their own equivalents — verify with `ls | grep`):
+**Abstract concept → icon name** (names shown for the tabler libraries; `phosphor-duotone` uses its own equivalents — verify with `ls | grep`):
 
-| Concept | chunk-filled | tabler-filled / tabler-outline |
-|---------|-------|-------------------------------|
-| Growth / Increase | `arrow-trend-up` | same |
-| Decline / Decrease | `arrow-trend-down` | same |
-| Success / Complete | `circle-checkmark` | `circle-check` |
-| Warning / Risk | `triangle-exclamation` | `alert-triangle` |
-| Innovation / Idea | `lightbulb` | `bulb` |
-| Strategy / Goal | `target` | same |
-| Efficiency / Speed | `bolt` | same |
-| Collaboration / Team | `users` | same |
-| Settings / Config | `cog` | `settings` |
-| Security / Trust | `shield` | same |
-| Money / Finance | `dollar` | `currency-dollar` |
-| Time / Deadline | `clock` | same |
-| Location / Region | `map-pin` | same |
-| Communication | `comment` | `message` |
-| Analysis / Data | `chart-bar` | same |
-| Process / Flow | `arrows-rotate-clockwise` | `refresh` |
-| Global / World | `globe` | `world` |
-| Excellence / Award | `star` | same |
-| Expand / Scale | `maximize` | same |
-| Problem / Issue | `bug` | same |
+| Concept | tabler-filled / tabler-outline |
+|---------|-------------------------------|
+| Growth / Increase | `arrow-trend-up` |
+| Decline / Decrease | `arrow-trend-down` |
+| Success / Complete | `circle-check` |
+| Warning / Risk | `alert-triangle` |
+| Innovation / Idea | `bulb` |
+| Strategy / Goal | `target` |
+| Efficiency / Speed | `bolt` |
+| Collaboration / Team | `users` |
+| Settings / Config | `settings` |
+| Security / Trust | `shield` |
+| Money / Finance | `currency-dollar` |
+| Time / Deadline | `clock` |
+| Location / Region | `map-pin` |
+| Communication | `message` |
+| Analysis / Data | `chart-bar` |
+| Process / Flow | `refresh` |
+| Global / World | `world` |
+| Excellence / Award | `star` |
+| Expand / Scale | `maximize` |
+| Problem / Issue | `bug` |
 
-> For self-evident names (home, user, file, search, arrow, etc.) — just `grep chunk-filled/` directly without consulting the table.
+> For self-evident names (home, user, file, search, arrow, etc.) — just `grep` the chosen library's directory directly without consulting the table.
 
 > ⚠️ **Icon validation**: only use icons from the Design Spec's approved inventory. Verify each via `ls | grep` before use. Mixing libraries within one deck is FORBIDDEN.
 

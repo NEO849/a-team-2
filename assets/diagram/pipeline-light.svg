@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" font-family="'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif" role="img" aria-label="How the studio works: your request goes to the orchestrator, fans out to specialist lanes, passes an adversarial harden gate, then ships.">
+<rect width="960" height="440" fill="#f5f6f8"/>
+<defs><marker id="ahlight" markerWidth="8" markerHeight="8" refX="6.5" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="#c3c8d0"/></marker><marker id="ahrlight" markerWidth="8" markerHeight="8" refX="6.5" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="#d81f18"/></marker></defs>
+<text x="28" y="38" fill="#8b929c" font-size="12" font-weight="700" letter-spacing="3">A-TEAM 2.0 &#8212; ORCHESTRATION</text>
+<rect x="28" y="48" width="34" height="3" fill="#d81f18"/>
+<rect x="26" y="192" width="128" height="56" fill="#ffffff" stroke="#d6dae1" stroke-width="1" rx="2"/>
+<text x="90.0" y="216" fill="#5a616b" font-size="13" font-weight="700" letter-spacing="1" text-anchor="middle">YOUR</text>
+<text x="90.0" y="235" fill="#14161a" font-size="13" font-weight="700" letter-spacing="1" text-anchor="middle">REQUEST</text>
+<rect x="188" y="150" width="150" height="3" fill="#d81f18"/><rect x="188" y="153" width="150" height="137" fill="#ffffff" stroke="#d81f18" stroke-width="1" rx="2"/>
+<text x="263.0" y="184" fill="#14161a" font-size="13" font-weight="800" letter-spacing="1" text-anchor="middle">ORCHESTRATOR</text>
+<text x="263.0" y="208" fill="#d81f18" font-size="12" font-weight="700" letter-spacing="0" text-anchor="middle">Claude</text>
+<text x="263.0" y="232" fill="#5a616b" font-size="12" font-weight="500" letter-spacing="0" text-anchor="middle">decompose</text>
+<text x="263.0" y="252" fill="#5a616b" font-size="12" font-weight="500" letter-spacing="0" text-anchor="middle">assign</text>
+<text x="263.0" y="272" fill="#5a616b" font-size="12" font-weight="500" letter-spacing="0" text-anchor="middle">harden</text>
+<line x1="154" y1="220" x2="186" y2="220" stroke="#c3c8d0" stroke-width="1.6" marker-end="url(#ahlight)"/>
+<rect x="372" y="85.0" width="262" height="54" fill="#eef0f3" stroke="#d6dae1" stroke-width="1" rx="2"/>
+<rect x="372" y="85.0" width="3" height="54" fill="#d81f18"/>
+<text x="388" y="107.0" fill="#14161a" font-size="12.5" font-weight="800" letter-spacing="1.5" text-anchor="start">DECIDE</text>
+<text x="388" y="126.0" fill="#5a616b" font-size="11" font-weight="400" letter-spacing="0" text-anchor="start">Strategist · CV Professor</text>
+<rect x="570" y="101.0" width="54" height="22" fill="none" stroke="#d81f18" stroke-width="1" rx="2"/>
+<text x="597.0" y="116.0" fill="#d81f18" font-size="10" font-weight="700" letter-spacing="0.5" text-anchor="middle">OPUS</text>
+<path d="M338,220 C360,220 350,112.0 370,112.0" fill="none" stroke="#c3c8d0" stroke-width="1.4" marker-end="url(#ahlight)"/>
+<rect x="372" y="157.0" width="262" height="54" fill="#eef0f3" stroke="#d6dae1" stroke-width="1" rx="2"/>
+<rect x="372" y="157.0" width="3" height="54" fill="#d81f18"/>
+<text x="388" y="179.0" fill="#14161a" font-size="12.5" font-weight="800" letter-spacing="1.5" text-anchor="start">RESEARCH</text>
+<text x="388" y="198.0" fill="#5a616b" font-size="11" font-weight="400" letter-spacing="0" text-anchor="start">Scout · Sweeper</text>
+<rect x="570" y="173.0" width="54" height="22" fill="none" stroke="#8b929c" stroke-width="1" rx="2"/>
+<text x="597.0" y="188.0" fill="#8b929c" font-size="10" font-weight="700" letter-spacing="0.5" text-anchor="middle">HAIKU</text>
+<path d="M338,220 C360,220 350,184.0 370,184.0" fill="none" stroke="#c3c8d0" stroke-width="1.4" marker-end="url(#ahlight)"/>
+<rect x="372" y="229.0" width="262" height="54" fill="#eef0f3" stroke="#d6dae1" stroke-width="1" rx="2"/>
+<rect x="372" y="229.0" width="3" height="54" fill="#d81f18"/>
+<text x="388" y="251.0" fill="#14161a" font-size="12.5" font-weight="800" letter-spacing="1.5" text-anchor="start">BUILD</text>
+<text x="388" y="270.0" fill="#5a616b" font-size="11" font-weight="400" letter-spacing="0" text-anchor="start">Writer · Designers · Architect</text>
+<rect x="550" y="245.0" width="74" height="22" fill="none" stroke="#5a616b" stroke-width="1" rx="2"/>
+<text x="587.0" y="260.0" fill="#5a616b" font-size="10" font-weight="700" letter-spacing="0.5" text-anchor="middle">OPUS/SONNET</text>
+<path d="M338,220 C360,220 350,256.0 370,256.0" fill="none" stroke="#c3c8d0" stroke-width="1.4" marker-end="url(#ahlight)"/>
+<rect x="372" y="301.0" width="262" height="54" fill="#eef0f3" stroke="#d6dae1" stroke-width="1" rx="2"/>
+<rect x="372" y="301.0" width="3" height="54" fill="#d81f18"/>
+<text x="388" y="323.0" fill="#14161a" font-size="12.5" font-weight="800" letter-spacing="1.5" text-anchor="start">FINISH</text>
+<text x="388" y="342.0" fill="#5a616b" font-size="11" font-weight="400" letter-spacing="0" text-anchor="start">Editor · Colorist · Composer · Sound</text>
+<rect x="570" y="317.0" width="54" height="22" fill="none" stroke="#5a616b" stroke-width="1" rx="2"/>
+<text x="597.0" y="332.0" fill="#5a616b" font-size="10" font-weight="700" letter-spacing="0.5" text-anchor="middle">SONNET</text>
+<path d="M338,220 C360,220 350,328.0 370,328.0" fill="none" stroke="#c3c8d0" stroke-width="1.4" marker-end="url(#ahlight)"/>
+<rect x="664" y="176" width="120" height="3" fill="#d81f18"/><rect x="664" y="179" width="120" height="85" fill="#ffffff" stroke="#d81f18" stroke-width="1" rx="2"/>
+<text x="724.0" y="210" fill="#14161a" font-size="13" font-weight="800" letter-spacing="1.5" text-anchor="middle">HARDEN</text>
+<text x="724.0" y="231" fill="#5a616b" font-size="11" font-weight="500" letter-spacing="0" text-anchor="middle">adversarial</text>
+<text x="724.0" y="247" fill="#5a616b" font-size="11" font-weight="500" letter-spacing="0" text-anchor="middle">review</text>
+<path d="M634,112.0 C656,112.0 642,220 662,220" fill="none" stroke="#c3c8d0" stroke-width="1.3" marker-end="url(#ahlight)"/>
+<path d="M634,184.0 C656,184.0 642,220 662,220" fill="none" stroke="#c3c8d0" stroke-width="1.3" marker-end="url(#ahlight)"/>
+<path d="M634,256.0 C656,256.0 642,220 662,220" fill="none" stroke="#c3c8d0" stroke-width="1.3" marker-end="url(#ahlight)"/>
+<path d="M634,328.0 C656,328.0 642,220 662,220" fill="none" stroke="#c3c8d0" stroke-width="1.3" marker-end="url(#ahlight)"/>
+<rect x="824" y="192" width="112" height="56" fill="#ffffff" stroke="#d81f18" stroke-width="1" rx="2"/>
+<text x="880.0" y="216" fill="#14161a" font-size="13" font-weight="800" letter-spacing="1" text-anchor="middle">SHIP</text>
+<text x="880.0" y="235" fill="#d81f18" font-size="13" font-weight="800" letter-spacing="1" text-anchor="middle">IT</text>
+<line x1="784" y1="220" x2="822" y2="220" stroke="#c3c8d0" stroke-width="1.6" marker-end="url(#ahlight)"/>
+<path d="M724.0,264 L724.0,298 L263.0,298 L263.0,292" fill="none" stroke="#d81f18" stroke-width="1.3" stroke-dasharray="4 4" marker-end="url(#ahrlight)"/>
+<text x="501.0" y="292" fill="#d81f18" font-size="10.5" font-weight="700" letter-spacing="0.5" text-anchor="middle">fix · re-run</text>
+<line x1="28" y1="398" x2="932" y2="398" stroke="#d6dae1" stroke-width="1"/>
+<text x="480.0" y="422" fill="#5a616b" font-size="11.5" font-weight="600" letter-spacing="0.5" text-anchor="middle">OPUS thinks   ·   SONNET builds   ·   HAIKU scouts   ·   every step coordinates on the shared blackboard</text>
+</svg>

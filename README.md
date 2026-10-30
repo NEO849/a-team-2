@@ -10,11 +10,27 @@
 
 **When the job needs specialists, you call the team.**
 
+<table align="center">
+<tr>
+<td align="center" width="150"><h3>16</h3></td>
+<td align="center" width="150"><h3>38</h3></td>
+<td align="center" width="150"><h3>5</h3></td>
+</tr>
+<tr>
+<td align="center">subagents</td>
+<td align="center">skills</td>
+<td align="center">commands</td>
+</tr>
+</table>
+
 <a href="https://github.com/NEO849/a-team-2/actions/workflows/secret-scan.yml"><img alt="Secret scan" src="https://img.shields.io/github/actions/workflow/status/NEO849/a-team-2/secret-scan.yml?branch=main&label=secret%20scan&style=flat-square&labelColor=0b0c0e&logo=githubactions&logoColor=e4e7eb"></a>
-<img alt="Version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FNEO849%2Fa-team-2%2Fmain%2F.claude-plugin%2Fplugin.json&query=%24.version&label=version&style=flat-square&labelColor=0b0c0e&color=e5241d">
-<img alt="Crew size" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FNEO849%2Fa-team-2%2Fmain%2F.github%2Fbadges%2Fcrew.json&style=flat-square&labelColor=0b0c0e">
+&nbsp;
 <img alt="Claude Code plugin" src="https://img.shields.io/badge/Claude_Code-plugin-e5241d?style=flat-square&labelColor=0b0c0e&logo=anthropic&logoColor=e4e7eb">
+&nbsp;
+<img alt="Version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FNEO849%2Fa-team-2%2Fmain%2F.claude-plugin%2Fplugin.json&query=%24.version&label=version&style=flat-square&labelColor=0b0c0e&color=e5241d">
+&nbsp;
 <img alt="Last commit" src="https://img.shields.io/github/last-commit/NEO849/a-team-2?style=flat-square&labelColor=0b0c0e&color=9aa1ab">
+&nbsp;
 <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-9aa1ab?style=flat-square&labelColor=0b0c0e"></a>
 
 [Install](#install) · [Meet the crew](#meet-the-crew) · [Skills](#skills) · [How the studio works](#how-the-studio-works) · [Built clean](#built-clean)
@@ -47,27 +63,161 @@ Try it now:
 
 ## Meet the crew
 
-16 subagents, each one craft. The glyph column is the planned portrait asset (rendered in a later
-pass); the one-liner is grounded in that agent's own definition — follow the link to read it in full.
+16 subagents, one craft each. **Click a role to open its brief** — the model follows the job: Opus thinks, Sonnet builds, Haiku scouts. Every one-liner is grounded in that agent's own definition.
 
-| Glyph (planned) | Role | What it does | Definition |
-| --- | --- | --- | --- |
-| `assets/crew/strategie-analyst.png` | **The Strategist** | Turns a hard-to-reverse call into a written GO / NO-GO / CONDITIONAL with explicit kill-criteria and "what would prove me wrong." | [`agents/strategie-analyst.md`](agents/strategie-analyst.md) |
-| `assets/crew/recherche-scout.png` | **The Scout** | Finds the primary source — not the hype blog — and checks a claim against it before it gets repeated. | [`agents/recherche-scout.md`](agents/recherche-scout.md) |
-| `assets/crew/surface-sweeper.png` | **The Sweeper** | Runs fast, cheap inventory sweeps across wide ground and returns only raw findings — no verdict, no analysis. | [`agents/surface-sweeper.md`](agents/surface-sweeper.md) |
-| `assets/crew/computer-vision-modell-professor.png` | **The CV Professor** | Checks whether a vision model actually holds — accuracy, latency, size, license — on your data and runtime, not just a paper's leaderboard row. | [`agents/computer-vision-modell-professor.md`](agents/computer-vision-modell-professor.md) |
-| `assets/crew/drehbuch-autor.png` | **The Writer** | Writes the script and the scene plan, built around a hook in the first three seconds. | [`agents/drehbuch-autor.md`](agents/drehbuch-autor.md) |
-| `assets/crew/schnitt-editor.png` | **The Editor** | Owns the montage: builds the picture-locked cut and measures the cut rate (scene-detect) instead of guessing it. | [`agents/schnitt-editor.md`](agents/schnitt-editor.md) |
-| `assets/crew/farb-spezialist.png` | **The Colorist** | Grades every shot to one consistent, BT.709-tagged look so avatar, graphics and background match. | [`agents/farb-spezialist.md`](agents/farb-spezialist.md) |
-| `assets/crew/komponist.png` | **The Composer** | Writes original melodies, jingles and sing-along hooks, delivered as stems — never mixes or masters. | [`agents/komponist.md`](agents/komponist.md) |
-| `assets/crew/songtexter-lyricist.png` | **The Lyricist** | Writes singable lyrics plus a syllable/stress map, built around one fixed hook and one swapped slot per round. | [`agents/songtexter-lyricist.md`](agents/songtexter-lyricist.md) |
-| `assets/crew/sounddesigner.png` | **The Sound Designer** | Builds foley, ambience and reaction SFX as separate stems — everything except the music, and never the final mix. | [`agents/sounddesigner.md`](agents/sounddesigner.md) |
-| `assets/crew/set-hintergrund-designer.png` | **The Set Designer** | Designs the depth-staggered background and props so the set never competes with the character for attention. | [`agents/set-hintergrund-designer.md`](agents/set-hintergrund-designer.md) |
-| `assets/crew/character-designer.png` | **The Character Designer** | Fixes a character's palette, proportions, silhouette and signature pose on a model sheet before anything moves. | [`agents/character-designer.md`](agents/character-designer.md) |
-| `assets/crew/figuren-animator.png` | **The Animator** | Rigs and animates drawn characters — lip-sync, blink timing, secondary motion — measured in frames, not eyeballed. | [`agents/figuren-animator.md`](agents/figuren-animator.md) |
-| `assets/crew/avatar-compositor.png` | **The Compositor** | Composites a HeyGen avatar into full-screen or circular picture-in-picture without losing the alpha channel. | [`agents/avatar-compositor.md`](agents/avatar-compositor.md) |
-| `assets/crew/pipeline-architekt.png` | **The Pipeline Architect** | Designs the module contracts and the render pipeline's JSON schema before anyone writes code. | [`agents/pipeline-architekt.md`](agents/pipeline-architekt.md) |
-| `assets/crew/doku-autor.png` | **The Technical Writer** | Writes the maintenance guide so the next person can run and fix the pipeline without you. | [`agents/doku-autor.md`](agents/doku-autor.md) |
+#### Decide & research
+
+<details>
+<summary><b>The Strategist</b></summary>
+
+Turns a hard-to-reverse call into a written GO / NO-GO / CONDITIONAL with explicit kill-criteria and "what would prove me wrong."
+
+`strategie-analyst` · runs on **Opus** · [definition](agents/strategie-analyst.md)
+
+</details>
+
+<details>
+<summary><b>The CV Professor</b></summary>
+
+Checks whether a vision model actually holds — accuracy, latency, size, license — on your data and runtime, not just a paper's leaderboard row.
+
+`computer-vision-modell-professor` · runs on **Opus** · [definition](agents/computer-vision-modell-professor.md)
+
+</details>
+
+<details>
+<summary><b>The Scout</b></summary>
+
+Finds the primary source — not the hype blog — and checks a claim against it before it gets repeated.
+
+`recherche-scout` · runs on **Haiku** · [definition](agents/recherche-scout.md)
+
+</details>
+
+<details>
+<summary><b>The Sweeper</b></summary>
+
+Runs fast, cheap inventory sweeps across wide ground and returns only raw findings — no verdict, no analysis.
+
+`surface-sweeper` · runs on **Haiku** · [definition](agents/surface-sweeper.md)
+
+</details>
+
+#### Story & design
+
+<details>
+<summary><b>The Writer</b></summary>
+
+Writes the script and the scene plan, built around a hook in the first three seconds.
+
+`drehbuch-autor` · runs on **Opus** · [definition](agents/drehbuch-autor.md)
+
+</details>
+
+<details>
+<summary><b>The Character Designer</b></summary>
+
+Fixes a character's palette, proportions, silhouette and signature pose on a model sheet before anything moves.
+
+`character-designer` · runs on **Opus** · [definition](agents/character-designer.md)
+
+</details>
+
+<details>
+<summary><b>The Set Designer</b></summary>
+
+Designs the depth-staggered background and props so the set never competes with the character for attention.
+
+`set-hintergrund-designer` · runs on **Sonnet** · [definition](agents/set-hintergrund-designer.md)
+
+</details>
+
+<details>
+<summary><b>The Pipeline Architect</b></summary>
+
+Designs the module contracts and the render pipeline's JSON schema before anyone writes code.
+
+`pipeline-architekt` · runs on **Opus** · [definition](agents/pipeline-architekt.md)
+
+</details>
+
+#### Animate & composite
+
+<details>
+<summary><b>The Animator</b></summary>
+
+Rigs and animates drawn characters — lip-sync, blink timing, secondary motion — measured in frames, not eyeballed.
+
+`figuren-animator` · runs on **Sonnet** · [definition](agents/figuren-animator.md)
+
+</details>
+
+<details>
+<summary><b>The Compositor</b></summary>
+
+Composites a HeyGen avatar into full-screen or circular picture-in-picture without losing the alpha channel.
+
+`avatar-compositor` · runs on **Sonnet** · [definition](agents/avatar-compositor.md)
+
+</details>
+
+#### Finish
+
+<details>
+<summary><b>The Editor</b></summary>
+
+Owns the montage: builds the picture-locked cut and measures the cut rate (scene-detect) instead of guessing it.
+
+`schnitt-editor` · runs on **Sonnet** · [definition](agents/schnitt-editor.md)
+
+</details>
+
+<details>
+<summary><b>The Colorist</b></summary>
+
+Grades every shot to one consistent, BT.709-tagged look so avatar, graphics and background match.
+
+`farb-spezialist` · runs on **Sonnet** · [definition](agents/farb-spezialist.md)
+
+</details>
+
+<details>
+<summary><b>The Composer</b></summary>
+
+Writes original melodies, jingles and sing-along hooks, delivered as stems — never mixes or masters.
+
+`komponist` · runs on **Sonnet** · [definition](agents/komponist.md)
+
+</details>
+
+<details>
+<summary><b>The Lyricist</b></summary>
+
+Writes singable lyrics plus a syllable/stress map, built around one fixed hook and one swapped slot per round.
+
+`songtexter-lyricist` · runs on **Sonnet** · [definition](agents/songtexter-lyricist.md)
+
+</details>
+
+<details>
+<summary><b>The Sound Designer</b></summary>
+
+Builds foley, ambience and reaction SFX as separate stems — everything except the music, and never the final mix.
+
+`sounddesigner` · runs on **Sonnet** · [definition](agents/sounddesigner.md)
+
+</details>
+
+#### Document
+
+<details>
+<summary><b>The Technical Writer</b></summary>
+
+Writes the maintenance guide so the next person can run and fix the pipeline without you.
+
+`doku-autor` · runs on **Sonnet** · [definition](agents/doku-autor.md)
+
+</details>
 
 ## Skills
 
@@ -129,22 +279,8 @@ pass); the one-liner is grounded in that agent's own definition — follow the l
 
 </details>
 
-## How the studio works
-
-```mermaid
-flowchart LR
-  A[Your request] --> B[Writer: script and hook]
-  B --> C[Set and character design]
-  C --> D[Animator and compositor]
-  D --> E[Editor: montage and pacing]
-  E --> F[Colorist and sound]
-  F --> G{Self-review: design-review / review-animations}
-  G -- fix --> D
-  G -- pass --> H[Delivery]
-```
-
 <details>
-<summary><b>Commands</b> — 5</summary>
+<summary><b>Commands</b> — 5 standalone slash-commands</summary>
 
 | Command | What it does |
 | --- | --- |
@@ -155,6 +291,18 @@ flowchart LR
 | `/speedtest` | internet speed test |
 
 </details>
+
+## How the studio works
+
+You call the team. An orchestrator decomposes the job, fans it out to the specialists that fit, and nothing ships until it survives an adversarial review.
+
+<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/diagram/pipeline-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/diagram/pipeline-light.svg">
+  <img alt="How the studio works: your request reaches the orchestrator, which fans the job out to specialist lanes — decide, research, build, finish — then through an adversarial harden gate with a fix/re-run loop before it ships." src="assets/diagram/pipeline-dark.svg" width="900">
+</picture>
+</div>
 
 ## Built clean
 
